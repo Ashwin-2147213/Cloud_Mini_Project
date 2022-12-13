@@ -1,0 +1,633 @@
+<div class="news_ticker"><!doctype html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/ticker.css">
+
+    <style>
+        header {
+ 
+ height:150px;
+ background-color: #00805c;
+background-image: url("http://www.transparenttextures.com/patterns/office.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+-webkit-box-shadow: 0px 3px 5px 0px rgba(31,166,123,1);
+-moz-box-shadow: 0px 3px 5px 0px rgba(31,166,123,1);
+box-shadow: 0px 3px 5px 0px rgba(31,166,123,1);
+}
+
+.fade-carousel {
+    position: relative;
+    height: 450px;
+}
+.fade-carousel .carousel-inner .item {
+    height: 450px;
+}
+.fade-carousel .carousel-indicators > li {
+    margin: 0 2px;
+    background-color: #f39c12;
+    border-color: #f39c12;
+    opacity: .7;
+}
+.fade-carousel .carousel-indicators > li.active {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+/********************************/
+/*          Hero Headers        */
+/********************************/
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;    
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.fade-carousel .carousel-inner .item .hero {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s; 
+        -ms-transition: 2s all ease-in-out .1s; 
+         -o-transition: 2s all ease-in-out .1s; 
+            transition: 2s all ease-in-out .1s; 
+}
+.fade-carousel .carousel-inner .item.active .hero {
+    opacity: 1;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s; 
+        -ms-transition: 2s all ease-in-out .1s; 
+         -o-transition: 2s all ease-in-out .1s; 
+            transition: 2s all ease-in-out .1s;    
+}
+
+/********************************/
+/*            Overlay           */
+/********************************/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .7;
+}
+
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+.btn.btn-lg {padding: 10px 40px;}
+.btn.btn-hero,
+.btn.btn-hero:hover,
+.btn.btn-hero:focus {
+    color: #f5f5f5;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    outline: none;
+    margin: 20px auto;
+}
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+.fade-carousel .slides .slide-1, 
+.fade-carousel .slides .slide-2,
+.fade-carousel .slides .slide-3 {
+  height: 50vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.fade-carousel .slides .slide-1 {
+  background-image: url(https://gatways.s3.amazonaws.com/gw.jpg); 
+}
+.fade-carousel .slides .slide-2 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818);
+}
+.fade-carousel .slides .slide-3 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818);
+}
+
+/********************************/
+/*          Media Queries       */
+/********************************/
+@media screen and (min-width: 980px){
+    .hero { width: 980px; }    
+}
+@media screen and (max-width: 640px){
+    .hero h1 { font-size: 4em; }    
+}
+
+@charset "utf-8";
+/* Simple fluid media
+   Note: Fluid media requires that you remove the media's height and width attributes from the HTML
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+img, object, embed, video {
+  max-width: 100%;
+}
+
+/* IE 6 does not support max-width so default to width 100% */
+.ie6 img {
+  width:100%;
+}
+body {
+background:#000;
+}
+html {
+background:#000;
+}
+
+
+.fluid {
+  clear: both;
+  margin-left: 0;
+  width: 100%;
+  float: left;
+  display: block;
+}
+
+.fluidList {
+    list-style:none;
+    list-style-image:none;
+    margin:0;
+    padding:0;        
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #007e58;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Mobile Layout: 480px and below. */
+  
+.gridContainer {
+  /*margin-left: auto;
+  margin-right: auto;
+  width: 86.45%;
+  padding-left: 2.275%;
+  padding-right: 2.275%;
+  clear: none;
+  float: none;*/
+}
+header {
+
+ height:250px;
+ width: 2000px;
+ 
+ background-color: #000000;
+background-image: url("https://gatways.s3.amazonaws.com/bg.jpg");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+-webkit-box-shadow: 0px 3px 5px 0px rgba(31,166,123,1);
+-moz-box-shadow: 0px 3px 5px 0px rgba(31,166,123,1);
+box-shadow: 0px 3px 5px 0px rgba(31,166,123,1);
+ margin-top:-20px;
+}
+.fluid {
+  clear: both;
+  margin-left: 0;
+  width: 100%;
+  float: left;
+  display: block;
+}
+.navbar-default {
+  background-color: #090909;
+  border-color: #007e58;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ecdbff;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ecdbff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #000000;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #ecdbff;
+  background-color: #007e58;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #007e58;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #ecdbff;
+  background-color: #007e58;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ecdbff;
+  background-color: #007e58;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ecdbff;
+  background-color: #007e58;
+}
+.navbar-default .navbar-toggle {
+  border-color: #007e58;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #007e58;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #ecdbff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ecdbff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ecdbff;
+    background-color: #007e58;
+  }
+}
+#div1 {
+}
+#header {
+width: 100%;
+background:#0C9;
+border-top:0.5px solid #333;
+}
+.nav {
+}
+.main {
+    min-height:400px;
+  margin-top:-20px;
+  background-color:#333;
+  overflow-y:auto;
+}
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+  background-color: #00805c;
+background-image: url("http://www.transparenttextures.com/patterns/office.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you!*/
+}
+
+/* IE 6 */
+* html #footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+
+.search {
+ width: 25px;
+     height: 30px;
+     background: #000;
+   float:right;
+}
+.news_ticker {
+  width:100%;
+  background:#666;
+}
+.zeroMargin_mobile {
+margin-left: 0;
+}
+.hide_mobile {
+display: none;
+}
+/* Let's get this party started */
+
+/* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
+
+@media only screen and (min-width: 481px) {
+
+.gridContainer {
+  width: 90.675%;
+  padding-left: 1.1625%;
+  padding-right: 1.1625%;
+  clear: none;
+  float: none;
+  margin-left: auto;
+}
+#div1 {
+}
+#header {
+width: 100%;
+
+height:120px;
+}
+.nav {
+  
+}
+.main {
+}
+
+.search {
+
+     width: 50px;
+     height: 30px;
+     background: #000;
+   float:right;
+}
+.news_ticker {
+}
+.hide_tablet {
+display: none;
+}
+.zeroMargin_tablet {
+margin-left: 0;
+}
+}
+
+/* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
+
+@media only screen and (min-width: 769px) {
+
+.gridContainer {
+  width: 88.5%;
+  max-width: 1232px;
+  padding-left: 0.75%;
+  padding-right: 0.75%;
+  margin: auto;
+  clear: none;
+  float: none;
+  margin-left: auto;
+}
+
+#header {
+width: 100%;
+}
+
+.search {
+width: 90px;
+margin-left:0;
+margin-right:0;
+clear: none;
+}
+.news_ticker {
+  width:100%;
+  height:30px;
+  background:#666;
+}
+.zeroMargin_desktop {
+margin-left: 0;
+}
+.hide_desktop {
+display: none;
+}
+.hide_mobile {
+display:block;
+}
+}
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.ticker-container {
+	height: 60px;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	background-color: rgb(15, 7, 7);
+	color: rgb(183, 40, 40);
+	/*background-color: white;
+	color: black;*/
+	font-size: 1.1em;
+	margin-bottom: 15px;
+}
+.ticker-container .ticker-caption {
+	height: 50%;
+	width: 100%;
+	background-color: #EC0B43;
+	display: table;
+	position: absolute;
+	color: white;
+	font-size: 0.8em;
+	z-index: 1;
+}
+.ticker-container .ticker-caption p {
+	height: inherit;
+	width: inherit;
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: bold;
+}
+.ticker-container ul {
+	list-style: none;
+	padding: 0;
+	height: auto;
+}
+.ticker-container ul div {
+	overflow: hidden;
+	position: absolute;
+	z-index: 0;
+	display: inline;
+	min-width: 100%;
+	left: 0;
+	height: 50%;
+	transition: 0.25s ease-in-out;
+}
+.ticker-container ul div.ticker-active {
+	top: 30px;
+}
+.ticker-container ul div.not-active {
+	top: 60px;
+}
+.ticker-container ul div.remove {
+	top: 0;
+}
+.ticker-container ul div li {
+	padding: 5px 0;
+}
+.ticker-container ul div li a {
+	color: #00CC99;
+}
+
+@media (min-width: 500px) {
+	.ticker-container {
+		height: 30px;
+		text-align: left;
+	}
+	.ticker-container .ticker-caption {
+		height: 100%;
+		width: 150px;
+		background:url('../img/ticker-caption-bg.png');
+	}
+	.ticker-container .ticker-caption p {
+		text-align: left;
+		padding-left: 7px;
+	}
+	.ticker-container ul {
+		margin-left: 170px;
+		height: 100%;
+	}
+	.ticker-container ul div {
+		height: 100%;
+		left: 170px;
+	}
+	.ticker-container ul div.ticker-active {
+		top: 0;
+	}
+	.ticker-container ul div.not-active {
+		top: 30px;
+	}
+	.ticker-container ul div.remove {
+		top: -30px;
+	}
+}
+
+@media (min-width: 768px) {
+  .ticker-container {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .ticker-container {
+    margin-bottom: 20px;
+  }
+}
+    </style>
+    
+    </head>
+    
+    <body>
+    <div class="ticker-container">
+ 
+    
+    
+    </body>
+    </html>
+    </div>
+    <header>
+    <div class="container">
+    
+    <div class="col-sm-8 " ><h1 class="hide_mobile" style="color:#fff;font-family: 'Orbitron', sans-serif;text-align:center;font-size: 100;">CHRIST UNIVERSITY </h1><br><br>
+    <div class="col-sm-8 " ><h2 class="hide_mobile" style="color:#fff;font-family: 'Orbitron', sans-serif;text-align:center;font-size: 50;">MCA DEPARTMENT PRESENTS GATEWAYS 2022</h2>
+    <h3 class="hide_desktop " style="color:#fff;font-family: 'Orbitron', sans-serif;   text-align:center">CHRIST UNIVERSITY</h3>
+
+    
+    </div>
+    </header>
+    
+    
+    <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+      <div class="">
+      <nav class="navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+    <div class="navbar-header">
+            <br><br>
+            
+              </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+          </nav>
+      </div>
+    
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel" style="margin-top:-20px">
+      <!-- Overlay -->
+    
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+
+       
+
+      </ol>
+      
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item slides active">
+          <div class="slide-1">
+              <div class="overlay"></div>
+          </div>
+          <div class="hero">
+            <hgroup>
+                <h1>EVENTS</h1>        
+                <h3>Description</h3>
+            </hgroup>
+            <a href="/add"><button class="btn btn-hero btn-lg" role="button">Register now!</button></a>
+          </div>
+        </div>
+
+    
